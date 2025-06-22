@@ -26,6 +26,8 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       logout();
     }
 
+    console.log("User from URL:", urlUser);
+
     if (match) {
       // Save session
       localStorage.setItem("username", username);
@@ -33,7 +35,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       localStorage.setItem("loginTime", Date.now());
 
       // Redirect to content
-      window.location.href = 'content.html';
+      window.location.href = 'content.html?user=${encodeURIComponent(username)}';
       
     } else {
       document.getElementById("message").textContent = "❌ Invalid username or password.";
