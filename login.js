@@ -35,7 +35,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       localStorage.setItem("loginTime", Date.now());
 
       // Redirect to content
-      window.location.href = "content.html";
+      window.location.href = 'content.html?user=${encodeURIComponent(username)}';
       
     } else {
       document.getElementById("message").textContent = "❌ Invalid username or password.";
